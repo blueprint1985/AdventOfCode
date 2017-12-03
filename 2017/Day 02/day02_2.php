@@ -1,9 +1,7 @@
 <?php
 
 $myfile = fopen("day02_input.txt", "r") or die("Unable to open file!");
-$instr_arr = array();
-
-$spreadsheet_arr = [];
+$spreadsheet_arr = array();
 
 while(!feof($myfile)) {
     $spreadsheet_arr[] = trim(fgets($myfile));
@@ -14,19 +12,19 @@ fclose($myfile);
 $result = 0;
 
 foreach ($spreadsheet_arr as $row) {
-    $clean_row = array_filter(explode(" ", $row));
+    $clean_row = array_values(array_filter(explode(" ", $row)));
+    $length = count($clean_row);
 
-    foreach ($clean_row as $i => $outer) {
-        foreach ($clean_row as $j => $inner) {
-            $division = (intval($outer) / intval($inner));
+    for ($i = 0; $i < $length - 1; $i++) {
+        for ($j = $i + 1; $j < $length; $j++) {
+            $values = array($clean_row[$i], $clean_row[$j]);
 
-            if ($i !== $j && is_int($division)) {
-                $result += $division;
+            if (max($values) % min($values) === 0) {
+                $result += max($values) / min($values);
             }
         }
     }
 }
-
 echo($result);
 
 ?>

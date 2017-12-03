@@ -15,15 +15,7 @@ $checksum = 0;
 
 foreach ($spreadsheet_arr as $row) {
     $clean_row = array_filter(explode(" ", $row));
-    $row_high = 0;
-    $row_low = PHP_INT_MAX;
-
-    foreach ($clean_row as $value) {
-        $row_high = ($value > $row_high) ? $value : $row_high;
-        $row_low = ($value < $row_low) ? $value : $row_low;
-    }
-
-    $checksum += ($row_high - $row_low);
+    $checksum += (max($clean_row) - min($clean_row));
 }
 
 
