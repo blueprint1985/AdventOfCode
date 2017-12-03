@@ -1,38 +1,44 @@
---- Day 1: Inverse Captcha ---
+--- Day 3: Spiral Memory ---
 
-The night before Christmas, one of Santa's Elves calls you in a panic. "The printer's broken! We can't print the Naughty or Nice List!" By the time you make it to sub-basement 17, there are only a few minutes until midnight. "We have a big problem," she says; "there must be almost fifty bugs in this system, but nothing else can print The List. Stand in this square, quick! There's no time to explain; if you can convince them to pay you in stars, you'll be able to--" She pulls a lever and the world goes blurry.
+You come across an experimental new kind of memory stored on an infinite two-dimensional grid.
 
-When your eyes can focus again, everything seems a lot more pixelated than before. She must have sent you inside the computer! You check the system clock: 25 milliseconds until midnight. With that much time, you should be able to collect all fifty stars by December 25th.
+Each square on the grid is allocated in a spiral pattern starting at a location marked 1 and then counting up while spiraling outward. For example, the first few squares are allocated like this:
 
-Collect stars by solving puzzles. Two puzzles will be made available on each day millisecond in the advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!
+17  16  15  14  13
+18   5   4   3  12
+19   6   1   2  11
+20   7   8   9  10
+21  22  23---> ...
 
-You're standing in a room with "digitization quarantine" written in LEDs along one wall. The only door is locked, but it includes a small interface. "Restricted Area - Strictly No Digitized Users Allowed."
-
-It goes on to explain that you may only leave by solving a captcha to prove you're not a human. Apparently, you only get one millisecond to solve the captcha: too fast for a normal human, but it feels like hours to you.
-
-The captcha requires you to review a sequence of digits (your puzzle input) and find the sum of all digits that match the next digit in the list. The list is circular, so the digit after the last digit is the first digit in the list.
+While this is very space-efficient (no squares are skipped), requested data must be carried back to square 1 (the location of the only access port for this memory system) by programs that can only move up, down, left, or right. They always take the shortest path: the Manhattan Distance between the location of the data and square 1.
 
 For example:
 
-- 1122 produces a sum of 3 (1 + 2) because the first digit (1) matches the second digit and the third digit (2) matches the fourth digit.
-- 1111 produces 4 because each digit (all 1) matches the next.
-- 1234 produces 0 because no digit matches the next.
-- 91212129 produces 9 because the only digit that matches the next one is the last digit, 9.
+- Data from square 1 is carried 0 steps, since it's at the access port.
+- Data from square 12 is carried 3 steps, such as: down, left, left.
+- Data from square 23 is carried only 2 steps: up twice.
+- Data from square 1024 must be carried 31 steps.
 
-What is the solution to your captcha?
+How many steps are required to carry the data from the square identified in your puzzle input all the way to the access port?
 
 --- Part Two ---
 
-You notice a progress bar that jumps to 50% completion. Apparently, the door isn't yet satisfied, but it did emit a star as encouragement. The instructions change:
+As a stress test on the system, the programs here clear the grid and then store the value 1 in square 1. Then, in the same allocation order as shown above, they store the sum of the values in all adjacent squares, including diagonals.
 
-Now, instead of considering the next digit, it wants you to consider the digit halfway around the circular list. That is, if your list contains 10 items, only include a digit in your sum if the digit 10/2 = 5 steps forward matches it. Fortunately, your list has an even number of elements.
+So, the first few squares' values are chosen as follows:
 
-For example:
+- Square 1 starts with the value 1.
+- Square 2 has only one adjacent filled square (with value 1), so it also stores 1.
+- Square 3 has both of the above squares as neighbors and stores the sum of their values, 2.
+- Square 4 has all three of the aforementioned squares as neighbors and stores the sum of their values, 4.
+- Square 5 only has the first and fourth squares as neighbors, so it gets the value 5.
 
-- 1212 produces 6: the list contains 4 items, and all four digits match the digit 2 items ahead.
-- 1221 produces 0, because every comparison is between a 1 and a 2.
-- 123425 produces 4, because both 2s match each other, but no other digit has a match.
-- 123123 produces 12.
-- 12131415 produces 4.
+Once a square is written, its value does not change. Therefore, the first few squares would receive the following values:
 
-What is the solution to your new captcha?
+147  142  133  122   59
+304    5    4    2   57
+330   10    1    1   54
+351   11   23   25   26
+362  747  806--->   ...
+
+What is the first value written that is larger than your puzzle input?
