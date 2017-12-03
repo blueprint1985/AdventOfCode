@@ -11,6 +11,8 @@ while(!feof($myfile)) {
 
 fclose($myfile);
 
+$start_time = microtime(true);
+
 $checksum = 0;
 
 foreach ($spreadsheet_arr as $row) {
@@ -18,6 +20,10 @@ foreach ($spreadsheet_arr as $row) {
     $checksum += (max($clean_row) - min($clean_row));
 }
 
+$end_time = microtime(true);
+
+echo("Result: " . $checksum . "\n");
+echo("Execution time: " . ($end_time - $start_time) . " seconds");
 
 echo($checksum);
 

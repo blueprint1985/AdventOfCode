@@ -71,6 +71,8 @@ $myfile = fopen("day03_input.txt", "r") or die("Unable to open file!");
 $input = trim(fgets($myfile));
 fclose($myfile);
 
+$start_time = microtime(true);
+
 $input = intval($input);
 
 $square = array("0:0" => 1);
@@ -95,6 +97,9 @@ while ($curr_add <= $input) {
     }
 }
 
-echo($curr_add);
+$end_time = microtime(true);
+
+echo("Result: " . $curr_add . "\n");
+echo("Execution time: " . ($end_time - $start_time) . " seconds");
 
 ?>

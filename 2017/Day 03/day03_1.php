@@ -14,6 +14,8 @@ $myfile = fopen("day03_input.txt", "r") or die("Unable to open file!");
 $input = trim(fgets($myfile));
 fclose($myfile);
 
+$start_time = microtime(true);
+
 $input = intval($input);
 
 $square_size = ceil(sqrt($input));
@@ -29,6 +31,9 @@ $midpoints = array($square_mid_low, $square_mid_left, $square_mid_top, $square_m
 $midpoint_dist = closestDistToMid($input, $midpoints, $square_size);
 $manhattan_dist = $midpoint_dist + (floor($square_size / 2));
 
-echo($manhattan_dist);
+$end_time = microtime(true);
+
+echo("Result: " . $manhattan_dist . "\n");
+echo("Execution time: " . ($end_time - $start_time) . " seconds");
 
 ?>

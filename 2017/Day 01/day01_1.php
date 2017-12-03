@@ -4,6 +4,8 @@ $myfile = fopen("day01_input.txt", "r") or die("Unable to open file!");
 $captcha = trim(fgets($myfile));
 fclose($myfile);
 
+$start_time = microtime(true);
+
 $sum = 0;
 $list = str_split($captcha);
 
@@ -20,6 +22,9 @@ if ($list[$i] === $list[0]) {
     $sum += intval($list[$i], 10);
 }
 
-echo($sum);
+$end_time = microtime(true);
+
+echo("Result: " . $sum . "\n");
+echo("Execution time: " . ($end_time - $start_time) . " seconds");
 
 ?>

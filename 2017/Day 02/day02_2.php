@@ -9,6 +9,8 @@ while(!feof($myfile)) {
 
 fclose($myfile);
 
+$start_time = microtime(true);
+
 $result = 0;
 
 foreach ($spreadsheet_arr as $row) {
@@ -25,6 +27,10 @@ foreach ($spreadsheet_arr as $row) {
         }
     }
 }
-echo($result);
+
+$end_time = microtime(true);
+
+echo("Result: " . $result . "\n");
+echo("Execution time: " . ($end_time - $start_time) . " seconds");
 
 ?>
