@@ -17,9 +17,7 @@ fclose($myfile);
 $start_time = microtime(true);
 
 // Make integers of all values
-foreach ($instr_arr as $key => $value) {
-    $instr_arr[$key] = intval($instr_arr[$key]);
-}
+$instr_arr = array_map('intval', $instr_arr);
 
 // Initiate variables
 $pos = 0;

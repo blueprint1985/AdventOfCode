@@ -3,8 +3,6 @@
 // READ INPUT
 
 $myfile = fopen("day02_input.txt", "r") or die("Unable to open file!");
-$instr_arr = array();
-
 $spreadsheet_arr = [];
 
 while(!feof($myfile)) {

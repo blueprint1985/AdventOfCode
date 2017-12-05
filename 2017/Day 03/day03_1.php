@@ -37,7 +37,7 @@ $input = intval($input);
 // Algoritm to calculate the width and height of the square that has the input
 // in the edge of the suqare. Since this type of square can only have an odd 
 // number as the length of the side, we need to add 1 to the size if the result
-// is even. We also need to knoq the maximum number tor the calculated square
+// is even. We also need to know the maximum number for the calculated square
 // size.
 $square_size = ceil(sqrt($input));
 $square_size = ($square_size % 2 === 0) ? $square_size + 1 : $square_size;
@@ -50,7 +50,7 @@ $square_max = $square_size ** 2;
 // means half the square_size away from maximum, and then the midpoints are
 // maximum away from each other with 1 removed.
 $square_mid_bottom = $square_max - (floor($square_size / 2));
-$square_mid_left = $square_mid_low - ($square_size - 1);
+$square_mid_left = $square_mid_bottom - ($square_size - 1);
 $square_mid_top = $square_mid_left - ($square_size - 1);
 $square_mid_right = $square_mid_top - ($square_size - 1);
 
