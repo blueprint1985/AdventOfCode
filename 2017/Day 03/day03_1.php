@@ -18,10 +18,13 @@ $input = intval($input);
 // in the edge of the suqare. Since this type of square can only have an odd 
 // number as the length of the side, we need to add 1 to the size if the result
 // is even. We also need to know the maximum number for the calculated square
-// size.
+// size. Last we calculate the distance from an square corner to a midpoint on
+// the edge ow the square which is also the same as the distance from an edge
+// midpoint to the center.
 $square_size = ceil(sqrt($input));
 $square_size = ($square_size % 2 === 0) ? $square_size + 1 : $square_size;
 $square_max = $square_size ** 2;
+$square_level = floor($square_size / 2);
 
 // We now need to calculate the midpoints of each side. We do this, since the
 // midpoints have a straight path to square 1. We know that the maximum number
@@ -29,7 +32,7 @@ $square_max = $square_size ** 2;
 // clockwise around the edge. Mid bottom is halfway to the next corner, which
 // means half the square_size away from maximum, and then the midpoints are
 // maximum away from each other with 1 removed.
-$square_mid_bottom = $square_max - (floor($square_size / 2));
+$square_mid_bottom = $square_max - $square_level;
 $square_mid_left = $square_mid_bottom - ($square_size - 1);
 $square_mid_top = $square_mid_left - ($square_size - 1);
 $square_mid_right = $square_mid_top - ($square_size - 1);
@@ -45,7 +48,7 @@ $mid_right_dist = abs($input - $square_mid_right);
 // midpoint to our value. After that we add the distance from that midpoint to
 // the center. That gives is the Manhattan distance.
 $min_midpoint_dist = min($mid_bottom_dist, $mid_left_dist, $mid_top_dist, $mid_right_dist);
-$manhattan_dist = $min_midpoint_dist + (floor($square_size / 2));
+$manhattan_dist = $min_midpoint_dist + $square_level;
 
 // Stop timing
 $end_time = microtime(true);
