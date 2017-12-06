@@ -74,12 +74,12 @@ if ((in_array("-h", $argv) || in_array("--help", $argv)) && count($argv) > 2) {
 
 if ($argv[1] === "-h" || $argv[1] === "--help") {
     echo "".PHP_EOL;
-    echo "Usage: php Run.php [day] [part]* [OPTIONS]".PHP_EOL;
+    echo "Usage: php Run.php [day] [part(s)] [OPTIONS]".PHP_EOL;
     echo "Run AdventOfCode for day and part(s)".PHP_EOL;
     echo "".PHP_EOL;
     echo "Arguments:".PHP_EOL;
     echo "  [day]        Which day that should be run. Mandatory. Only one day allowed per run".PHP_EOL;
-    echo "  [part]*      If part \"one\", \"two\" or \"both\" should be run. Multiple parts possible".PHP_EOL;
+    echo "  [part(s)]    If part \"one\", \"two\" or \"both\" should be run. Multiple parts possible".PHP_EOL;
     echo "".PHP_EOL;
     echo "OPTIONS:".PHP_EOL;
     echo "  -h  --help   Show help section. Cannot be used together with other arguments or options".PHP_EOL;
