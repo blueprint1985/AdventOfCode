@@ -2,7 +2,7 @@
 
 ### Usage
 
-`php Run.php [day] [part]* [OPTIONS]"`
+`php Run.php [day] [part(s)] [OPTIONS]`
 
 ###### Arguments
 
