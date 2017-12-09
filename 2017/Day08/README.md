@@ -1,4 +1,4 @@
-#  I Heard You Like Registers
+#  Day 8: I Heard You Like Registers
 
 ### Part One
 
