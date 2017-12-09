@@ -16,7 +16,7 @@ class PartTwo extends Base {
      * @param string $str_two The second string
      * @return bool true if strings are anagrams, false otherwise
      */
-    private function isAnagram(string $str_one, string $str_two) {
+    private function isAnagram(string $str_one, string $str_two) : bool {
         $str_lengths = strlen($str_one);
 
         // Two words must be of same length to be anagrams
@@ -50,7 +50,7 @@ class PartTwo extends Base {
      * @param string[] $pass_split The array to check for anagrams
      * @return bool true if array contains anagrams, false otherwise
      */
-    private function checkForAnagrams(array $pass_split) {
+    private function checkForAnagrams(array $pass_split) : bool {
         $pass_length = count($pass_split);
         $pass_length_short = $pass_length - 1;
 

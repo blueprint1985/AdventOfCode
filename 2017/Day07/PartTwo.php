@@ -9,7 +9,16 @@ class PartTwo extends Base {
         $this->faulty_children = array();
     }
 
-    private function findFaultyChildren(array $programs, string $parent) {
+    /**
+     * findFaultyChildren
+     *
+     * Find the children where one ckild has a different weight
+     *
+     * @param string[] $programs The full programs array
+     * @param string $parent The parent node to check weight and balance
+     * @return int Weight of parent node
+     */
+    private function findFaultyChildren(array $programs, string $parent) : int {
         // Find the whole parent node
         $full_parent_arr = preg_grep('/^('.$parent.').*$/', $programs);
         $full_parent_value = array_values($full_parent_arr)[0];
@@ -44,7 +53,15 @@ class PartTwo extends Base {
         return $weight + array_sum($children_weights);
     }
 
-    private function getRootNode(array $programs) {
+    /**
+     * getRootNode
+     *
+     * Get the name of the root node in the tree
+     *
+     * @param string[] $programs The full programs array
+     * @return string Name of the root node
+     */
+    private function getRootNode(array $programs) : string {
         // Initiate arrays
         $nodes = array();
         $children = array();

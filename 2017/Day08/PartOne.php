@@ -7,7 +7,17 @@ class PartOne extends Base {
         $this->instructions = $input;
     }
 
-    private function compare($reg_val, $operator, $comparator) {
+    /**
+     * compare
+     *
+     * Compare two values accorting to operator, all are strings
+     *
+     * @param string $reg_val The left argumant of the comparison
+     * @param string $operator The type of comparison to be done
+     * @param string $comparator The right argumant of the comparison
+     * @return bool the comparison result
+     */
+    private function compare(string $reg_val, string $operator, string $comparator) : bool {
         $code = 'return %s %s %s;';
 
         return eval(sprintf($code, $reg_val, $operator, $comparator));
