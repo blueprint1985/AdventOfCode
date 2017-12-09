@@ -1,0 +1,22 @@
+{
+  "PartOne": [
+    {
+      "input": "1",
+      "result": "0"
+    },
+    {
+      "input": "12",
+      "result": "3"
+    },
+    {
+      "input": "23",
+      "result": "2"
+    },
+    {
+      "input": "1024",
+      "result": "31"
+    }
+  ],
+  "PartTwo": [
+  ]
+}

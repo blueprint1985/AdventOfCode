@@ -1,0 +1,14 @@
+{
+  "PartOne": [
+    {
+      "input": "0\n3\n0\n1\n-3",
+      "result": "5"
+    }
+  ],
+  "PartTwo": [
+    {
+      "input": "0\n3\n0\n1\n-3",
+      "result": "10"
+    }
+  ]
+}

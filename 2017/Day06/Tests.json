@@ -1,0 +1,14 @@
+{
+  "PartOne": [
+    {
+      "input": "0\t2\t7\t0",
+      "result": "5"
+    }
+  ],
+  "PartTwo": [
+    {
+      "input": "0\t2\t7\t0",
+      "result": "4"
+    }
+  ]
+}

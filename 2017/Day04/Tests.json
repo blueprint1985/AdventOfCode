@@ -1,0 +1,14 @@
+{
+  "PartOne": [
+    {
+      "input": "aa bb cc dd ee\naa bb cc dd aa\naa bb cc dd aaa",
+      "result": "2"
+    }
+  ],
+  "PartTwo": [
+    {
+      "input": "abcde fghij\nabcde xyz ecdab\na ab abc abd abf abj\niiii oiii ooii oooi oooo\noiii ioii iioi iiio",
+      "result": "3"
+    }
+  ]
+}
