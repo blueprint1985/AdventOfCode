@@ -16,7 +16,7 @@ class PartTwo extends Base {
         $list_len = count($list);
 
         // Loop thouch all elements
-        while ($i < $list_len - 1) { 
+        while ($i < $list_len) {
             // Compare the current element with one halfway around
             // If they are the same, add to sum
             if ($list[$i] === $list[($i+($list_len/2))%$list_len]) {
