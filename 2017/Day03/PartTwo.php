@@ -56,14 +56,27 @@ class PartTwo extends Base {
     private function calc(int $x, int $y, array $square) : int {
         $curr_add = 0;
 
-        $curr_add += intval($square[($x+1) . ":" . ($y  )]);
-        $curr_add += intval($square[($x+1) . ":" . ($y-1)]);
-        $curr_add += intval($square[($x  ) . ":" . ($y-1)]);
-        $curr_add += intval($square[($x-1) . ":" . ($y-1)]);
-        $curr_add += intval($square[($x-1) . ":" . ($y  )]);
-        $curr_add += intval($square[($x-1) . ":" . ($y+1)]);
-        $curr_add += intval($square[($x  ) . ":" . ($y+1)]);
-        $curr_add += intval($square[($x+1) . ":" . ($y+1)]);
+        // Loop through x-values
+        for ($i=-1; $i < 2; $i++) {
+            $x_n = $x + $i;
+
+            // Loop through y-values
+            for ($j=-1; $j < 2; $j++) {
+                $y_n = $y + $j;
+
+                // Create coordinate from loop values
+                $check_coord = $x_n.":".$y_n;
+
+                // Do not add if coordinate is not calculated or same as
+                // the original coordinate in function call
+                if (($x_n === $x && $y_n === $y) || !array_key_exists($check_coord, $square)) {
+                    continue;
+                }
+
+                // Add coordinate value to sum
+                $curr_add += intval($square[$check_coord]);
+            }
+        }
 
         return $curr_add;
     }
