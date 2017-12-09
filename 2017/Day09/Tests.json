@@ -35,31 +35,31 @@
   ],
   "PartTwo": [
     {
-      "input": "{<>}",
+      "input": "<>",
       "result": "0"
     },
     {
-      "input": "{<random characters>}",
+      "input": "<random characters>",
       "result": "17"
     },
     {
-      "input": "{<<<<>}",
+      "input": "<<<<>",
       "result": "3"
     },
     {
-      "input": "{<{!>}>}",
+      "input": "<{!>}>",
       "result": "2"
     },
     {
-      "input": "{<!!>}",
+      "input": "<!!>",
       "result": "0"
     },
     {
-      "input": "{<!!!>>}",
+      "input": "<!!!>>",
       "result": "0"
     },
     {
-      "input": "{<{o\"i!a,<{i<a>}",
+      "input": "<{o\"i!a,<{i<a>",
       "result": "10"
     }
   ]
