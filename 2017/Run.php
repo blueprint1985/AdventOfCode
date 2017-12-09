@@ -86,6 +86,8 @@ if ($argv[1] === "-h" || $argv[1] === "--help") {
   exit(0);
 }
 
+error_reporting(E_ALL);
+
 require "./Base.php";
 
 $runner = new Run();
