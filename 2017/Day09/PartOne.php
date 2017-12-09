@@ -22,17 +22,17 @@ class PartOne extends Base {
         while ($i < strlen($stream)) {
             // We found a valid group start, increase depth counter and add to
             // total sum, or a valid group ending, decrease depth counter
-            if ($stream[$i] === "{") {
+            if (isset($stream[$i]) && $stream[$i] === "{") {
                 $depth_counter++;
                 $sum += $depth_counter;
-            } else if ($stream[$i] === "}") {
+            } else if (isset($stream[$i]) && $stream[$i] === "}") {
                 $depth_counter--;
             }
 
             $i++;
 
             // If current char is start if garbage, find garbage end
-            if ($stream[$i] === "<") {
+            if (isset($stream[$i]) && $stream[$i] === "<") {
                 $i++;
                 $cancel_next = false;
                 $garbage_ended = false;

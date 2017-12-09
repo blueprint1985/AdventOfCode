@@ -19,7 +19,7 @@ class PartTwo extends Base {
             $i++;
 
             // If current char is start if garbage, find garbage end
-            if ($stream[$i] === "<") {
+            if (isset($stream[$i]) && $stream[$i] === "<") {
                 $i++;
                 $cancel_next = false;
                 $garbage_ended = false;
