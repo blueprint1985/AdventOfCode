@@ -53,13 +53,7 @@ class Test {
     }
 }
 
-if ((in_array("-h", $argv) || in_array("--help", $argv)) && count($argv) > 2) {
-    echo "".PHP_EOL;
-    echo "ERROR: Invalid argument(s). Please run \"php Run.php -h\" to see help section".PHP_EOL;
-    exit(1);
-}
-
-if ($argv[1] === "-h" || $argv[1] === "--help") {
+if (in_array("-h", $argv) || in_array("--help", $argv)) {
     echo "".PHP_EOL;
     echo "Usage: php Test.php [day] [part(s)] [OPTIONS]".PHP_EOL;
     echo "Test AdventOfCode for day and part(s)".PHP_EOL;
