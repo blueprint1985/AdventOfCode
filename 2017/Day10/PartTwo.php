@@ -10,25 +10,6 @@ class PartTwo extends Base {
     }
 
     /**
-     * getAscii
-     *
-     * Get numerical ascii value for each character in a string
-     *
-     * @param string $lengths String to be converted
-     * @return int[] Array of numerical ascii values for ech charachter in $lengths
-     */
-    private function getAscii(string $str) : array {
-        $chars = str_split($str);
-
-        // Replace each char with it's ascii value
-        foreach ($chars as &$char) {
-            $char = ord($char);
-        }
-
-        return $chars;
-    }
-
-    /**
      * runList
      *
      * Run a list and make knot hash
@@ -96,7 +77,7 @@ class PartTwo extends Base {
     public function solve() {
         // Fetch programs variable to save runtime
         // Also convert to ASCII and add suffix
-        $lengths = $this->getAscii($this->lengths);
+        $lengths = array_map("ord", str_split($this->lengths));
         $additions = array(17, 31, 73, 47, 23);
         $lengths = array_merge($lengths, $additions);
 
@@ -120,28 +101,14 @@ class PartTwo extends Base {
         // Go through each chunk
         foreach ($chunks as &$chunk) {
             // Bitwise xor each element in chunk
-            $xor_val = 
-                $chunk[0] ^
-                $chunk[1] ^
-                $chunk[2] ^
-                $chunk[3] ^
-                $chunk[4] ^
-                $chunk[5] ^
-                $chunk[6] ^
-                $chunk[7] ^
-                $chunk[8] ^
-                $chunk[9] ^
-                $chunk[10] ^
-                $chunk[11] ^
-                $chunk[12] ^
-                $chunk[13] ^
-                $chunk[14] ^
-                $chunk[15];
+            $xor_val = array_reduce($chunk, function(int $carry, int $element) : int {
+                return $carry ^ $element;
+            }, 0);
 
             // Convert to hex
             $hex_val = dechex($xor_val);
 
-            // Add leading 0 if answer is one char long
+            // Add leading 0 if answer is one char long, then assign
             $chunk = (strlen($hex_val) === 1) ? "0".$hex_val : $hex_val;
         }
 
