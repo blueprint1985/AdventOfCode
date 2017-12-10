@@ -7,6 +7,15 @@ class PartOne extends Base {
         $this->stream = $input;
     }
 
+    /**
+     * garbageHandler
+     *
+     * Find the end position of the garbage
+     *
+     * @param int $pos Garbage start position
+     * @param string $stream Full stream
+     * @return int Garbage end position
+     */
     private function garbageHandler(int $pos, string $stream) : int {
         $pos++;
         $cancel_next = false;

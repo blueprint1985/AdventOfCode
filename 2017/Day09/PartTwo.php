@@ -9,6 +9,16 @@ class PartTwo extends Base {
         $this->garbage = 0;
     }
 
+    /**
+     * garbageHandler
+     *
+     * Find the end position of the garbage. Also increase garbage counter for
+     * each valid garbage.
+     *
+     * @param int $pos Garbage start position
+     * @param string $stream Full stream
+     * @return int Garbage end position
+     */
     private function garbageHandler(int $pos, string $stream) : int {
         $pos++;
         $cancel_next = false;
