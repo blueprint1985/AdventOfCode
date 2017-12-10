@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part two
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartTwo extends Base {
     private $spreadsheet;
 
@@ -7,7 +14,14 @@ class PartTwo extends Base {
         $this->spreadsheet = $input;
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch spreadsheet variable to save runtime
         $spreadsheet = $this->spreadsheet;
 
@@ -38,7 +52,7 @@ class PartTwo extends Base {
             }
         }
 
-        return $result;
+        return strval($result);
     }
 }
 

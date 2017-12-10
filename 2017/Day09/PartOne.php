@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part one
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartOne extends Base {
     private $stream;
 
@@ -51,7 +58,14 @@ class PartOne extends Base {
         return $pos;
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch programs variable to save runtime
         $stream = $this->stream;
 
@@ -84,7 +98,7 @@ class PartOne extends Base {
             }
         }
 
-        return $sum;
+        return strval($sum);
     }
 }
 

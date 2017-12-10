@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part one
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartOne extends Base {
     private $list;
 
@@ -7,7 +14,14 @@ class PartOne extends Base {
         $this->list = str_split($input);
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch list variable to save runtime
         $list = $this->list;
 
@@ -33,7 +47,7 @@ class PartOne extends Base {
             $sum += intval($list[$i], 10);
         }
 
-        return $sum;
+        return strval($sum);
     }
 }
 

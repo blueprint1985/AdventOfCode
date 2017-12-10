@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part one
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartOne extends Base {
     private $passwords;
 
@@ -7,7 +14,14 @@ class PartOne extends Base {
         $this->passwords = $input;
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch passwords variable to save runtime
         $passwords = $this->passwords;
 
@@ -25,7 +39,7 @@ class PartOne extends Base {
             }
         }
 
-        return $correct;
+        return strval($correct);
     }
 }
 

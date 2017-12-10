@@ -1,6 +1,21 @@
 <?php
 
+/**
+ * Class for running all problems
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class Test {
+    /**
+     * findDayFromArguments
+     *
+     * Search command line arguments for the day to run
+     *
+     * @param array $args Command line arguments
+     * @return string|bool The day in the arguments or false
+     */
     public function findDayFromArguments(array $args) {
         $days = array();
 
@@ -19,6 +34,14 @@ class Test {
         }
     }
 
+    /**
+     * findPartsFromArguments
+     *
+     * Search command line arguments for which parts to run
+     *
+     * @param array $args Command line arguments
+     * @return array The parts to run
+     */
     public function findPartsFromArguments(array $args) {
         $parts = array();
 
@@ -38,10 +61,27 @@ class Test {
         return array_unique($parts);
     }
 
-    public function fetchInput(string $url) {
+    /**
+     * fetchInput
+     *
+     * Get input from input file. The inputfile is a json, return an array
+     * decoded from the json.
+     *
+     * @param string $url THe location of the input file
+     * @return array The input as string or array
+     */
+    public function fetchInput(string $url) : array {
         return json_decode(file_get_contents($url), true);
     }
 
+    /**
+     * runPart
+     *
+     * Rin each part with timing
+     *
+     * @param Base $part Which part to run
+     * @return array Solution and runtime as array
+     */
     public function runPart(Base $part) {
         $start_time = microtime(true);
         $solution = $part->solve();

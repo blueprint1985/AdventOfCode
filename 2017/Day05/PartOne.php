@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part one
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartOne extends Base {
     private $instructions;
 
@@ -7,7 +14,14 @@ class PartOne extends Base {
         $this->instructions = array_map('intval', $input);
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch instructions variable to save runtime
         $instructions = $this->instructions;
 
@@ -28,7 +42,7 @@ class PartOne extends Base {
             $i++;
         }
 
-        return $i;
+        return strval($i);
     }
 }
 

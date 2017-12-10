@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part one
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartOne extends Base {
     private $lengths;
 
@@ -7,9 +14,14 @@ class PartOne extends Base {
         $this->lengths = $input;
     }
 
-
-
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch programs variable to save runtime
         $lengths = array_map("intval", explode(",", $this->lengths));
 
@@ -70,7 +82,7 @@ class PartOne extends Base {
             $skip_size++;
         }
 
-        return $list[0] * $list[1];
+        return strval($list[0] * $list[1]);
     }
 }
 

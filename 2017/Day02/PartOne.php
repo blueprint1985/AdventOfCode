@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part one
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartOne extends Base {
     private $spreadsheet;
 
@@ -7,7 +14,14 @@ class PartOne extends Base {
         $this->spreadsheet = $input;
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch spreadsheet variable to save runtime
         $spreadsheet = $this->spreadsheet;
 
@@ -22,7 +36,7 @@ class PartOne extends Base {
             $checksum += (max($clean_row) - min($clean_row));
         }
 
-        return $checksum;
+        return strval($checksum);
     }
 }
 

@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part one
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartOne extends Base {
     private $banks;
 
@@ -7,7 +14,14 @@ class PartOne extends Base {
         $this->banks = array_map("intval", explode("\t", $input));
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch banks variable to save runtime
         $banks = $this->banks;
 
@@ -58,7 +72,7 @@ class PartOne extends Base {
             $i++;
         }
 
-        return $i;
+        return strval($i);
     }
 }
 

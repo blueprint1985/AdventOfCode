@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part one
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartOne extends Base {
     private $square;
 
@@ -7,7 +14,14 @@ class PartOne extends Base {
         $this->square = $input;
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Convert square to int
         $square = intval($this->square);
 
@@ -47,7 +61,7 @@ class PartOne extends Base {
         $min_midpoint_dist = min($mid_bottom_dist, $mid_left_dist, $mid_top_dist, $mid_right_dist);
         $manhattan_dist = $min_midpoint_dist + $grid_level;
 
-        return $manhattan_dist;
+        return strval($manhattan_dist);
     }
 }
 

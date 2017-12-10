@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part two
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartTwo extends Base {
     private $instructions;
 
@@ -23,7 +30,14 @@ class PartTwo extends Base {
         return eval(sprintf($code, $reg_val, $operator, $comparator));
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch programs variable to save runtime
         $instructions = $this->instructions;
 
@@ -70,7 +84,7 @@ class PartTwo extends Base {
             $highest = max($highest, max($registers));
         }
 
-        return $highest;
+        return strval($highest);
     }
 }
 

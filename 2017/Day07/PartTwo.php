@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part two
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartTwo extends Base {
     private $programs;
     private $faulty_children;
@@ -96,7 +103,14 @@ class PartTwo extends Base {
         return array_values(array_diff($nodes, $children))[0];
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch programs variable to save runtime
         $programs = $this->programs;
 
@@ -150,7 +164,7 @@ class PartTwo extends Base {
         $faulty_child_actual_weight = intval($faulty_child_weight_arr[1]);
 
         // Return the correct weight for the faulty child
-        return $faulty_child_actual_weight - $weight_diff;
+        return strval($faulty_child_actual_weight - $weight_diff);
     }
 }
 

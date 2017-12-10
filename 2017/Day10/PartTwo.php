@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part two
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartTwo extends Base {
     private $lengths;
     private $list_len;
@@ -74,7 +81,14 @@ class PartTwo extends Base {
         return array($skip_size, $list_pos, $list);
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Fetch programs variable to save runtime
         // Also convert to ASCII and add suffix
         $lengths = array_map("ord", str_split($this->lengths));
@@ -112,7 +126,7 @@ class PartTwo extends Base {
             $chunk = (strlen($hex_val) === 1) ? "0".$hex_val : $hex_val;
         }
 
-        return implode("", $chunks);
+        return strval(implode("", $chunks));
     }
 }
 

@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class for problem part two
+ *
+ * $author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class PartTwo extends Base {
     private $square;
 
@@ -116,7 +123,14 @@ class PartTwo extends Base {
         return $turn;
     }
 
-    public function solve() {
+    /**
+     * solve
+     *
+     * Solves the problem based on the input
+     *
+     * @return string The solution for the problem
+     */
+    public function solve() : string {
         // Convert square to int
         $square = intval($this->square);
 
@@ -152,7 +166,7 @@ class PartTwo extends Base {
             }
         }
 
-        return $curr_add;
+        return strval($curr_add);
     }
 }
 

@@ -1,6 +1,21 @@
 <?php
 
+/**
+ * Class for running all problems
+ *
+ * @author Martin Björling <martinbjorling@gmail.com>
+ * @license MIT
+ * @copyright Martin Björling 2015 - 2017
+ */
 class Run {
+    /**
+     * findDayFromArguments
+     *
+     * Search command line arguments for the day to run
+     *
+     * @param array $args Command line arguments
+     * @return string|bool The day in the arguments or false
+     */
     public function findDayFromArguments(array $args) {
         $days = array();
 
@@ -19,7 +34,15 @@ class Run {
         }
     }
 
-    public function findPartsFromArguments(array $args) {
+    /**
+     * findPartsFromArguments
+     *
+     * Search command line arguments for which parts to run
+     *
+     * @param array $args Command line arguments
+     * @return array The parts to run
+     */
+    public function findPartsFromArguments(array $args) : array {
         $parts = array();
 
         foreach ($args as $arg) {
@@ -38,6 +61,15 @@ class Run {
         return array_unique($parts);
     }
 
+    /**
+     * fetchInput
+     *
+     * Get input from input file. If the input only has one line, the return
+     * should be a string, otherwise an array.
+     *
+     * @param string $url THe location of the input file
+     * @return string|array The input as string or array
+     */
     public function fetchInput(string $url) {
         $myfile = @fopen($url, "r") or die(PHP_EOL."ERROR: Unable to open file ".$url.PHP_EOL);
         $input = [];
@@ -55,7 +87,15 @@ class Run {
         return $input;
     }
 
-    public function runPart(Base $part) {
+    /**
+     * runPart
+     *
+     * Rin each part with timing
+     *
+     * @param Base $part Which part to run
+     * @return array Solution and runtime as array
+     */
+    public function runPart(Base $part) : array {
         $start_time = microtime(true);
         $solution = $part->solve();
         $end_time = microtime(true);
