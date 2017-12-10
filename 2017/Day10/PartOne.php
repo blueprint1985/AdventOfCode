@@ -14,8 +14,8 @@ class PartOne extends Base {
         $lengths = array_map("intval", explode(",", $this->lengths));
 
         // Initiate variables
-        $list = range(0, 4); // For testing only!
-        //$list = range(0, 255); // For testing only!
+        $list = range(0, 255);
+        //$list = range(0, 4); // For testing only!
         $skip_size = 0;
         $list_pos = 0;
         $list_len = count($list);

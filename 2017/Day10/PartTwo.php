@@ -82,8 +82,8 @@ class PartTwo extends Base {
         $lengths = array_merge($lengths, $additions);
 
         // Initiate variables
+        $list = range(0, 255);
         //$list = range(0, 4); // For testing only!
-        $list = range(0, 255); // Real input list
         $skip_size = 0;
         $list_pos = 0;
         $this->list_len = count($list);
