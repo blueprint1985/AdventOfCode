@@ -91,7 +91,10 @@ class PartTwo extends Base {
     public function solve() : string {
         // Fetch programs variable to save runtime
         // Also convert to ASCII and add suffix
-        $lengths = array_map("ord", str_split($this->lengths));
+        $lengths = ($this->lengths === "") ?
+            array() :
+            array_map("ord", str_split($this->lengths));
+
         $additions = array(17, 31, 73, 47, 23);
         $lengths = array_merge($lengths, $additions);
 
