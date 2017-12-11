@@ -1,0 +1,22 @@
+{
+  "PartOne": [
+    {
+      "input": "ne,ne,ne",
+      "result": "3"
+    },
+    {
+      "input": "ne,ne,sw,sw",
+      "result": "0"
+    },
+    {
+      "input": "ne,ne,s,s",
+      "result": "2"
+    },
+    {
+      "input": "se,sw,se,sw,sw",
+      "result": "3"
+    }
+  ],
+  "PartTwo": [
+  ]
+}
