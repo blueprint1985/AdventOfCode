@@ -34,13 +34,13 @@ class PartTwo extends Base {
 
         // Initiate variables
         $last_layer_index = max(array_keys($layers));
-        $severity = 1;
+        $caught = true;
         $start_time = -1;
 
         // Loop while we have severity (we have severity if we hit the scanner)
-        while ($severity !== 0) {
-            // Reset severity and increase start time
-            $severity = 0;
+        while ($caught) {
+            // Reset caught and increase start time
+            $caught = false;
             $start_time++;
 
             for ($i=0; $i < $last_layer_index + 1; $i++) {
@@ -52,15 +52,11 @@ class PartTwo extends Base {
                 // Layer i scanner position at step i with start time added
                 $pos_i = ($i + $start_time) % $layers[$i]["roundtime"];
 
-                // If layer i scanner is at position 0 at step i, add severity
+                // If layer i scanner is at position 0 at step i, caught, no
+                // need to continue looking
                 if ($pos_i === 0) {
-                    $severity += ($i * $layers[$i]["range"]);
-
-                    // Special case for layer 0 because 0 * i is 0 even when
-                    // scanner is at position 0
-                    if ($i === 0) {
-                        $severity++;
-                    }
+                    $caught = true;
+                    break;
                 }
             }
         }
