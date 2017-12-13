@@ -25,6 +25,8 @@ class PartOne extends Base {
         // Fetch layers variable to save runtime
         // Make better array for each layer, a layer will look loke this:
         // 0 => ["range" => 3, "roundtime" => 4]
+        // Roundtime is the time for the scanner to go from position 0 to the
+        // end and then back to position 0 again for each layer
         $layers = array();
         foreach ($this->layers as $layer) {
             list($layer, $range) = explode(": ", $layer);

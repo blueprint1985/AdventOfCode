@@ -25,6 +25,8 @@ class PartTwo extends Base {
         // Fetch layers variable to save runtime
         // Make better array for each layer, a layer will look loke this:
         // 0 => ["range" => 3, "roundtime" => 4]
+        // Roundtime is the time for the scanner to go from position 0 to the
+        // end and then back to position 0 again for each layer
         $layers = array();
         foreach ($this->layers as $layer) {
             list($layer, $range) = explode(": ", $layer);
@@ -37,12 +39,13 @@ class PartTwo extends Base {
         $caught = true;
         $start_time = -1;
 
-        // Loop while we have severity (we have severity if we hit the scanner)
+        // Loop while we got caught stepping through the firewall
         while ($caught) {
             // Reset caught and increase start time
             $caught = false;
             $start_time++;
 
+            // Step through firewall
             for ($i=0; $i < $last_layer_index + 1; $i++) {
                 // There is no layer this step
                 if (empty($layers[$i])) {
@@ -52,8 +55,9 @@ class PartTwo extends Base {
                 // Layer i scanner position at step i with start time added
                 $pos_i = ($i + $start_time) % $layers[$i]["roundtime"];
 
-                // If layer i scanner is at position 0 at step i, caught, no
-                // need to continue looking
+                // If layer i scanner is at position 0 at step i, we are caught
+                // and there is no need to continue stepping through the
+                // firewall
                 if ($pos_i === 0) {
                     $caught = true;
                     break;
