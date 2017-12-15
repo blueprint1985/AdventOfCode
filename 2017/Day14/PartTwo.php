@@ -157,12 +157,12 @@ class PartTwo extends Base {
      * removeGroup
      *
      * Recursively remove a group in the grid by removing that coordinate from
-     * the grid totally
+     * the grid totally and then check adjacent coordinates (not diagonally).
      *
      * @param string $row_index The row that is the start of the recursion
      * @param string $col_index The col that is the start of the recursion
      */
-    private function removeGroup($row_index, $col_index) {
+    private function removeGroup(string $row_index, string $col_index) : void {
         // Remove this coordinate from the grid
         unset($this->grid[$row_index][$col_index]);
 
@@ -217,7 +217,7 @@ class PartTwo extends Base {
 
             // Remove all 0:s from row without changing keys
             for ($j=0; $j < 128; $j++) { 
-                if ($row_arr[$j] == "0") {
+                if ($row_arr[$j] === "0") {
                     unset($row_arr[$j]);
                 }
             }
