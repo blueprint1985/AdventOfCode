@@ -1,0 +1,14 @@
+{
+  "PartOne": [
+    {
+      "input": "flqrgnkx",
+      "result": "8108"
+    }
+  ],
+  "PartTwo": [
+    {
+      "input": "flqrgnkx",
+      "result": "1242"
+    }
+  ]
+}
