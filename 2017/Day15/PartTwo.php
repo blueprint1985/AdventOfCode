@@ -65,16 +65,10 @@ class PartTwo extends Base {
 
         // Compare all pairs
         for ($i=0; $i < 5000000; $i++) {
-            // Convert to binary
-            $genAbin = decbin($genAmod[$i]);
-            $genBbin = decbin($genBmod[$i]);
-
-            // Get the last 16 bits
-            $genAend = substr($genAbin, -16);
-            $genBend = substr($genBbin, -16);
-
-            // Check for match
-            if ($genAend === $genBend) {
+            // Do bitwise AND for each generator value, the bitwise operator &
+            // returns and integer. We can then compare both integers and check
+            // if they are the same.
+            if (($genAmod[$i] & 0xffff) === ($genBmod[$i] & 0xffff)) {
                 $matches++;
             }
         }

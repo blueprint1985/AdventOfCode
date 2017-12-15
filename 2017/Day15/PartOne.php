@@ -39,16 +39,10 @@ class PartOne extends Base {
             $genAval = ($genAval * 16807) % 2147483647;
             $genBval = ($genBval * 48271) % 2147483647;
 
-            // Convert to binary
-            $genAbin = decbin($genAval);
-            $genBbin = decbin($genBval);
-
-            // Get the last 16 bits
-            $genAend = substr($genAbin, -16);
-            $genBend = substr($genBbin, -16);
-
-            // Check for match
-            if ($genAend === $genBend) {
+            // Do bitwise AND for each generator value, the bitwise operator &
+            // returns and integer. We can then compare both integers and check
+            // if they are the same.
+            if (($genAval & 0xffff) === ($genBval & 0xffff)) {
                 $matches++;
             }
         }
