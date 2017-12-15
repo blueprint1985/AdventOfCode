@@ -1,0 +1,14 @@
+{
+  "PartOne": [
+    {
+      "input": "Generator A starts with 516\nGenerator B starts with 190",
+      "result": "588"
+    }
+  ],
+  "PartTwo": [
+    {
+      "input": "Generator A starts with 516\nGenerator B starts with 190",
+      "result": "309"
+    }
+  ]
+}
