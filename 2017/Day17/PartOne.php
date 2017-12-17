@@ -33,7 +33,7 @@ class PartOne extends Base {
         for ($i=1; $i <= 2017; $i++) {
             // Calculate next position of insert and then insert next value at
             // that position
-            $pos = (($pos + $steps) % count($buffer)) + 1;
+            $pos = (($pos + $steps) % $i) + 1;
             array_splice($buffer, $pos, 0, $i);
         }
 
