@@ -1,0 +1,14 @@
+{
+  "PartOne": [
+    {
+      "input": "     |          \n     |  +--+    \n     A  |  C    \n F---|----E|--+ \n     |  |  |  D \n     +B-+  +--+ \n                ",
+      "result": "ABCDEF"
+    }
+  ],
+  "PartTwo": [
+    {
+      "input": "     |          \n     |  +--+    \n     A  |  C    \n F---|----E|--+ \n     |  |  |  D \n     +B-+  +--+ \n                ",
+      "result": "38"
+    }
+  ]
+}
