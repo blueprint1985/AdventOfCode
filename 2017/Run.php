@@ -75,7 +75,7 @@ class Run {
         $input = [];
 
         while(!feof($myfile)) {
-            $input[] = trim(fgets($myfile));
+            $input[] = trim(fgets($myfile), "\t\n\r\0\x0B");
         }
 
         fclose($myfile);
