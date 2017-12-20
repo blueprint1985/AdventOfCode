@@ -1,4 +1,4 @@
-#  Day 17: Spinlock
+#  Day 18: Duet
 
 ### Part One
 
@@ -8,13 +8,13 @@ It seems like the assembly is meant to operate on a set of registers that are ea
 
 There aren't that many instructions, so it shouldn't be hard to figure out what they do. Here's what you determine:
 
-`snd X` plays a sound with a frequency equal to the value of `X`.
-`set X Y` sets register `X` to the value of `Y`.
-`add X Y` increases register `X` by the value of `Y`.
-`mul X Y` sets register `X` to the result of multiplying the value contained in register `X` by the value of `Y`.
-`mod X Y` sets register `X` to the remainder of dividing the value contained in register `X` by the value of `Y` (that is, it sets `X` to the result of `X` modulo `Y`).
-`rcv X` recovers the frequency of the last sound played, but only when the value of `X` is not zero. (If it is zero, the command does nothing.)
-`jgz X Y` jumps with an offset of the value of `Y`, but only if the value of `X` is greater than zero. (An offset of `2` skips the next instruction, an offset of `-1` jumps to the previous instruction, and so on.)
+* `snd X` plays a sound with a frequency equal to the value of `X`.
+* `set X Y` sets register `X` to the value of `Y`.
+* `add X Y` increases register `X` by the value of `Y`.
+* `mul X Y` sets register `X` to the result of multiplying the value contained in register `X` by the value of `Y`.
+* `mod X Y` sets register `X` to the remainder of dividing the value contained in register `X` by the value of `Y` (that is, it sets `X` to the result of `X` modulo `Y`).
+* `rcv X` recovers the frequency of the last sound played, but only when the value of `X` is not zero. (If it is zero, the command does nothing.)
+* `jgz X Y` jumps with an offset of the value of `Y`, but only if the value of `X` is greater than zero. (An offset of `2` skips the next instruction, an offset of `-1` jumps to the previous instruction, and so on.)
 
 Many of the instructions can take either a register (a single letter) or a number. The value of a register is the integer it contains; the value of a number is that number.
 
@@ -50,8 +50,8 @@ As you congratulate yourself for a job well done, you notice that the documentat
 
 Each running copy of the program has its own set of registers and follows the code independently - in fact, the programs don't even necessarily run at the same speed. To coordinate, they use the send (`snd`) and receive (`rcv`) instructions:
 
-`snd X` sends the value of `X` to the other program. These values wait in a queue until that program is ready to receive them. Each program has its own message queue, so a program can never receive a message it sent.
-`rcv X` receives the next value and stores it in register `X`. If no values are in the queue, the program waits for a value to be sent to it. Programs do not continue to the next instruction until they have received a value. Values are received in the order they are sent.
+* `snd X` sends the value of `X` to the other program. These values wait in a queue until that program is ready to receive them. Each program has its own message queue, so a program can never receive a message it sent.
+* `rcv X` receives the next value and stores it in register `X`. If no values are in the queue, the program waits for a value to be sent to it. Programs do not continue to the next instruction until they have received a value. Values are received in the order they are sent.
 
 Each program also has its own program ID (one `0` and the other `1`); the register `p` should begin with this value.
 

@@ -1,4 +1,4 @@
-#  Day 17: Spinlock
+#  Day 19: A Series of Tubes
 
 ### Part One
 
@@ -15,7 +15,6 @@ Sometimes, the lines cross over each other; in these cases, it needs to continue
  F---|----E|--+ 
      |  |  |  D 
      +B-+  +--+ 
-
 ```
 
 Given this diagram, the packet needs to take the following path:
@@ -42,7 +41,6 @@ For example, using the same routing diagram from the example above...
  F---|--|-E---+ 
      |  |  |  D 
      +B-+  +--+ 
-
 ```
 
 ...the packet would go:
