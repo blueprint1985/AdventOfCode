@@ -73,10 +73,13 @@ class PartTwo extends Base {
 
         // Loop each particle's position change, and then the following
         // particles' position change
-        for ($i=0; $i < $particle_amount - 1; $i++) {
-            for ($j=$i+1; $j < $particle_amount; $j++) {
-                $outer = $position_changes[$i];
-                $inner = $position_changes[$j];
+        foreach ($position_changes as $i => $outer) {
+            foreach ($position_changes as $j => $inner) {
+                // No need to check elements in inner that are before current
+                // outer element
+                if ($j <= $i) {
+                    continue;
+                }
 
                 // Get distance between particles before and after the step
                 $dist_before = $this->getDist(array(
@@ -104,12 +107,13 @@ class PartTwo extends Base {
     /**
      * removeCollisions
      *
-     * Remove all collided particles from buffer
+     * Remove all collided particles from buffer and position changes
      *
      * @param array[] $buffer Buffer after each step
+     * @param array[] $pos_change Position changes after each step
      * @return array[] Buffer with removed collisions
      */
-    private function removeCollisions(array $buffer) : array {
+    private function removeCollisions(array $buffer, array $pos_change) : array {
         // Get all particle positions as JSON
         $mapped = array_map(function(array $particle) : string {
             return json_encode($particle["p"]);
@@ -130,10 +134,11 @@ class PartTwo extends Base {
 
             foreach ($keys as $buffer_index) {
                 unset($buffer[$buffer_index]);
+                unset($pos_change[$buffer_index]);
             }
         }
 
-        return $buffer;
+        return array($buffer, $pos_change);
     }
 
     /**
@@ -155,7 +160,7 @@ class PartTwo extends Base {
             $pos_change = array();
 
             // Go through buffer
-            foreach ($buffer as &$particle) {
+            foreach ($buffer as $buff_index => &$particle) {
                 // Get position before change
                 $pos_before = $particle["p"];
 
@@ -170,11 +175,11 @@ class PartTwo extends Base {
                 $particle["vel"] = $this->getDist($particle["v"]);
 
                 // Add old and new position to position change array
-                $pos_change[] = array($pos_before, $particle["p"]);
+                $pos_change[$buff_index] = array($pos_before, $particle["p"]);
             }
 
-            // Remove all any collisions
-            $buffer = $this->removeCollisions($buffer);
+            // Remove all colliding particles from both arrays
+            list($buffer, $pos_change) = $this->removeCollisions($buffer, $pos_change);
 
             // Check if we can still collide
             $can_still_collide = (count($buffer) <= 1) ? false : $this->checkIfCanStillCollide($pos_change);
