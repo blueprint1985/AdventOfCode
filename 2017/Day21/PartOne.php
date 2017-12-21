@@ -166,20 +166,16 @@ class PartOne extends Base {
      * Applies rules on each square in the grid
      *
      * @param string[] $squares All the squares in the grid
-     * @param string[] $rules_input Array with all rules to search
-     * @param string[] $rules_output Array with all results of rules
+     * @param string[] $rules Array with all rules
      * @return string[] Array of all squares with rules applied
      */
-    private function applyRules(array $squares, array $rules_input, array $rules_output) : array {
+    private function applyRules(array $squares, array $rules) : array {
         // Test each square
         foreach ($squares as &$square) {
-            // Check if we need to rotate it at all
-            $square_index = array_search($square, $rules_input);
-
-            // If not, replace the old square in squares array, continue to
-            // next square
-            if ($square_index !== false) {
-                $square = $rules_output[$square_index];
+            // Check if square exists in rules array and if it does, replace
+            // the old square in squares array, continue to next square
+            if (array_key_exists($square, $rules)) {
+                $square = $rules[$square];
                 continue;
             }
 
@@ -191,14 +187,11 @@ class PartOne extends Base {
                 // Test the square with current transformation
                 $test_square = $this->transformSquare($square, $trans);
 
-                // Check if the transformed square matches in our "book"
-                $square_index = array_search($test_square, $rules_input);
-
-                // If match , replace the old square in squares array, continue
-                // to next square, no need to test the rest of the
-                // transformations
-                if ($square_index !== false) {
-                    $square = $rules_output[$square_index];
+                // Check if transformed square exits in rules array and if it
+                // does replace the old square in squares array, continue to
+                // next square, no need to test the rest of the transformations
+                if (array_key_exists($test_square, $rules)) {
+                    $square = $rules[$test_square];
                     break;
                 }
             }
@@ -265,20 +258,13 @@ class PartOne extends Base {
      * @return string The solution for the problem
      */
     public function solve() : string {
-        // Fetch rules variable to save runtime and explode
-        $rules = array_map(function($rule) {
-            return explode(' => ', $rule);
-        }, $this->rules);
-
-        // Put rule inputs in one array
-        $rules_input = array_map(function($rule) {
-            return $rule[0];
-        }, $rules);
-
-        // Put rule outputs in one array
-        $rules_output = array_map(function($rule) {
-            return $rule[1];
-        }, $rules);
+        // Fetch rules variable to save runtime and put it to new array where
+        // key is compare value and value is resulting value
+        $rules = array();
+        foreach ($this->rules as $rule) {
+            $rule_arr = explode(' => ', $rule);
+            $rules[$rule_arr[0]] = $rule_arr[1];
+        }
 
         // Initiate grid and iteration amount
         $grid = ".#./..#/###";
@@ -300,7 +286,7 @@ class PartOne extends Base {
             }
 
             // Apply rules to squares
-            $grid_squares = $this->applyRules($grid_squares, $rules_input, $rules_output);
+            $grid_squares = $this->applyRules($grid_squares, $rules);
 
             // Put squares back together
             $grid = $this->mergeGrid($grid_squares);
