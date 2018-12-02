@@ -1,0 +1,14 @@
+{
+  "PartOne": [
+    {
+      "input": "abcdef\nbababc\nabbcde\nabcccd\naabcdd\nabcdee\nababab",
+      "result": "12"
+    }
+  ],
+  "PartTwo": [
+    {
+      "input": "abcde\nfghij\nklmno\npqrst\nfguij\naxcye\nwvxyz",
+      "result": "fgij"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "PartOne": [
+    {
+      "input": "+1\n-2\n+3\n+1",
+      "result": "2"
+    },
+    {
+      "input": "+1\n+1\n+1",
+      "result": "3"
+    },
+    {
+      "input": "+1\n+1\n-2",
+      "result": "3"
+    },
+    {
+      "input": "-1\n-2\n-3",
+      "result": "-6"
+    },
+  ],
+  "PartTwo": [
+    {
+      "input": "+1\n-2\n+3\n+1",
+      "result": "2"
+    },
+    {
+      "input": "+1\n-1",
+      "result": "0"
+    },
+    {
+      "input": "+3\n+3\n+4\n-2\n-4",
+      "result": "4"
+    },
+    {
+      "input": "-6\n+3\n+8\n+5\n-6",
+      "result": "5"
+    },
+    {
+      "input": "+7\n+7\n-2\n-7\n-4",
+      "result": "4"
+    }
+  ]
+}
