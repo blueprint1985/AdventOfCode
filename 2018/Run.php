@@ -5,7 +5,7 @@
  *
  * @author Martin Björling <martinbjorling@gmail.com>
  * @license MIT
- * @copyright Martin Björling 2015 - 2017
+ * @copyright Martin Björling 2015 - 2018
  */
 class Run {
     /**

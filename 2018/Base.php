@@ -5,7 +5,7 @@
  *
  * @author Martin Björling <martinbjorling@gmail.com>
  * @license MIT
- * @copyright Martin Björling 2015 - 2017
+ * @copyright Martin Björling 2015 - 2018
  */
 class Base {
     function __construct($input) {
@@ -15,7 +15,7 @@ class Base {
     /**
      * solve
      *
-     * Solves the rproblem based on the input
+     * Solves the problem based on the input
      *
      * @return string The solution for the problem
      */
