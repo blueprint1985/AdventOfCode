@@ -1,0 +1,14 @@
+{
+  "PartOne": [
+    {
+      "input": "dabAcCaCBAcCcaDA",
+      "result": "10"
+    }
+  ],
+  "PartTwo": [
+    {
+      "input": "dabAcCaCBAcCcaDA",
+      "result": "4"
+    }
+  ]
+}
